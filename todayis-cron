@@ -1,0 +1,1 @@
+30 6 * * * root /usr/local/bin/ruby /app/todayis.rb
