@@ -1,6 +1,5 @@
 GEM_HOME=/usr/local/bundle
 
-30 6 * * * root /usr/local/bin/ruby /app/todayis.rb
-* * * * * root /usr/local/bin/ruby /app/todayis.rb >> /var/log/cron.log 2>&1
+30 6 * * * root /usr/local/bin/ruby /app/todayis.rb >> /var/log/cron.log 2>&1
 # An empty line is required at the end of this file for a valid cron file.
 
