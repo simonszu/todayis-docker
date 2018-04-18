@@ -12,8 +12,8 @@ RUN apt-get update \
 
 RUN mkdir /app
 COPY todayis.rb /app
-COPY todayis-cron /etc/cron.d
-RUN chmod +x /etc/cron.d/todayis-cron
+COPY cron /etc/cron.d
+RUN chmod +x /etc/cron.d/cron
 
 COPY run.sh /app
 RUN chmod +x /app/run.sh
