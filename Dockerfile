@@ -15,6 +15,9 @@ COPY todayis.rb /app
 COPY cron /etc/cron.d
 RUN chmod +x /etc/cron.d/cron
 
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
+
 COPY run.sh /app
 RUN chmod +x /app/run.sh
 
