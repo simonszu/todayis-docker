@@ -27,3 +27,5 @@ elsif date.saturday?
 elsif date.sunday?
   client.update("Heute ist Sonntag")
 end    
+
+puts "Done!"
