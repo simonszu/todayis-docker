@@ -1,19 +1,20 @@
-FROM ruby:2.5
+FROM ruby:2.5-alpine
+
+RUN apk --no-cache add \
+    bash \
+    build-base \
+    gettext \
+    tzdata
 
 ENV TZ=Europe/Berlin
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN gem install date
 RUN gem install twitter
 
-RUN apt-get update \
-    && apt-get install -y cron \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN mkdir /app
 COPY todayis.rb /app
-COPY cron /etc/cron.d
-RUN chmod +x /etc/cron.d/cron
+COPY crontab.txt /app
+RUN /usr/bin/crontab /app/crontab.txt
 
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
