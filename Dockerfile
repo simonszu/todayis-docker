@@ -11,6 +11,8 @@ ENV TZ=Europe/Berlin
 RUN gem install date
 RUN gem install twitter
 
+RUN apk del build-base
+
 RUN mkdir /app
 COPY todayis.rb /app
 COPY crontab.txt /app
