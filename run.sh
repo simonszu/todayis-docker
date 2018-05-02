@@ -1,3 +1,3 @@
-#! /bin/bash
+#!/bin/sh
 
-cron -f && tail -f /var/log/cron.log
+/usr/sbin/crond -f -l 8 && tail -f /var/log/cron.log
